@@ -11,9 +11,9 @@ function startMockCRM() {
     return res.status(200).send("OK");
   };
 
-  app.post("/sync/create", handleRequest);
-  app.put("/sync/update", handleRequest);
-  app.delete("/sync/delete", handleRequest);
+  app.post("/sync", handleRequest);
+  app.put("/sync", handleRequest);
+  app.delete("/sync", handleRequest);
 
   return new Promise((resolve) => {
     app.listen(3001, () => {
