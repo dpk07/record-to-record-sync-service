@@ -4,12 +4,16 @@ function startMockCRM() {
   const app = express();
   app.use(express.json());
 
-  app.post("/sync", (req, res) => {
+  const handleRequest = (req, res) => {
     const rand = Math.random();
     if (rand < 0.2) return res.status(429).send("Rate limit");
     if (rand < 0.3) return res.status(500).send("Server error");
     return res.status(200).send("OK");
-  });
+  };
+
+  app.post("/sync/create", handleRequest);
+  app.put("/sync/update", handleRequest);
+  app.delete("/sync/delete", handleRequest);
 
   return new Promise((resolve) => {
     app.listen(3001, () => {
