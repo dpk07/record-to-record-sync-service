@@ -59,7 +59,7 @@ This service is responsible for:
 - Authentication handling for CRM APIs.
 - Task deduplication.
 - Metrics and observability (though in production this would be essential).
-- Parallelism using worker pools — current dispatcher uses a simple interval loop.
+- Parallelism. Current dispatcher uses a simple interval loop. We will have multiple consumer and groups in production.
 
 ---
 
